@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+
+<h:head>
+	<title>Fornecedor</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="StyleSheet" type="text/css" href="css/style.css" />
+	
+</h:head>
+	<h:body>
+		<h:form styleClass="form" id="form_01">
+	
+		<div styleClass="container">
+			<div styleClass="row">
+			
+				<hr/>
+			
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<h:commandLink styleClass="btn btn-secondary"  value="Dashboard" action="#{fornecedorBean.redirect}">
+		               <f:param value="dashboard.jsf" name="page"/>                        
+		           </h:commandLink>  
+						<h:commandLink styleClass="btn btn-secondary"  value="Listar Fornecedores" action="#{fornecedorBean.redirect}">
+			               <f:param value="lista_fornecedor.jsf" name="page"/>                        
+			           </h:commandLink>  
+					</div>
+				
+				
+				<hr/>
+		
+			
+				<div styleClass="col-sm-6">
+					<label>Razão Social: </label> 
+					<h:inputText styleClass="form-control" id="razao" value="#{fornecedorBean.fornecedor.razaoSocial}"/>
+				</div>
+				
+				<div styleClass="form-group col-sm-6">
+					<label>CNPJ: </label> 
+					<h:inputText styleClass="form-control" id="cnpj" value="#{fornecedorBean.fornecedor.cnpj}"/>
+				</div>
+				
+				
+				<div styleClass="form-group col-md-12">
+					<label>Endereço: </label> 
+					<h:inputText styleClass="form-control" id="endereco" value="#{fornecedorBean.fornecedor.endereco}"/>
+				</div>
+				
+				<div styleClass="form-group col-md-6">
+					<label>Responsável: </label> 
+					<h:inputText styleClass="form-control" id="responsavel" value="#{fornecedorBean.fornecedor.responsavel}"/>
+				</div>
+				
+				<div styleClass="form-group col-md-6">
+					<label>Telefone: </label> 
+					<h:inputText styleClass="form-control" id="telefone" value="#{fornecedorBean.fornecedor.telefone}"/>
+				</div>
+				
+				
+	       		<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{fornecedorBean.cadastrar}" ></h:commandButton>
+			
+		
+			</div>
+		</div>
+	</h:form>
+		
+</h:body>
+</html>

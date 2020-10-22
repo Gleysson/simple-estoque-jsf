@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+
+<h:head>
+	<title>Produto</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="StyleSheet" type="text/css" href="css/style.css" />
+	
+</h:head>
+	<h:body>
+		<h:form styleClass="form" id="form_01">
+	
+		<div styleClass="container">
+			<div styleClass="row">
+			
+				<hr/>
+			
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<h:commandLink styleClass="btn btn-secondary"  value="Dashboard" action="#{produtoBean.redirect}">
+		               <f:param value="dashboard.jsf" name="page"/>                        
+		           </h:commandLink>  
+					<h:commandLink styleClass="btn btn-secondary"  value="Listar Produtos" action="#{produtoBean.redirect}">
+		               <f:param value="lista_produto.jsf" name="page"/>                        
+		           </h:commandLink>  
+				</div>
+				
+				
+				<hr/>
+		
+				<div styleClass="col-sm-6">
+					<label>Descrição do Produto: </label> 
+					<h:inputText styleClass="form-control" id="razao" value="#{produtoBean.produto.descricao}"/>
+				</div>
+				
+				<div styleClass="form-group col-sm-6">
+					<label>Unidade: </label> 
+					
+					<h:selectOneMenu styleClass="form-control" value = "#{produtoBean.produto.unidade}"> 
+					   <f:selectItem itemValue = "Uni" itemLabel = "Unidade" /> 
+					   <f:selectItem itemValue = "Kg" itemLabel = "Kilo" /> 
+   					   <f:selectItem itemValue = "Caixa" itemLabel = "Caixa" /> 
+   					   <f:selectItem itemValue = "Pacote" itemLabel = "Kilo" />    					   
+					</h:selectOneMenu> 
+				</div>
+				
+				
+				
+	       		<h:commandButton styleClass="btn btn-success" value="Cadastrar" action="#{produtoBean.cadastrar}" ></h:commandButton>
+			
+			</div>
+		</div>
+	</h:form>
+		
+</h:body>
+</html>

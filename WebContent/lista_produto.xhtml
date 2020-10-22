@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+<h:head>
+	<title>Consulta de Produtos</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="StyleSheet" type="text/css" href="css/style.css" />
+</h:head>
+	<h:body>
+	<hr/>
+			<h:form>
+				<div class="btn-group" role="group" aria-label="Basic example">
+					<h:commandLink styleClass="btn btn-secondary"  value="Dashboard" action="#{produtoBean.redirect}">
+		               <f:param value="dashboard.jsf" name="page"/>                        
+		           </h:commandLink>  
+					<h:commandLink styleClass="btn btn-secondary"  value="Novo Produto" action="#{produtoBean.redirect}">
+		               <f:param value="form_produto.jsf" name="page"/>                        
+		           </h:commandLink>  
+				</div>
+     		</h:form>
+		
+	<hr/>
+	
+		<br/>
+		
+		 <h:dataTable styleClass="table table-hover" value="#{produtoBean.listaProduto}" var="p">
+           <h:column>
+                  <f:facet name="header">ID</f:facet>
+          			 #{p.id}
+      		 </h:column>
+
+           <h:column>
+                  <f:facet name="header">Produto</f:facet>
+           #{p.descricao}
+       </h:column> 
+      	<h:column>
+     		<f:facet name="header">Uni.</f:facet>
+    		 #{p.unidade}
+       	</h:column>
+       <h:column>
+  			<h:form>
+				<h:commandLink styleClass="btn btn-warning"  value="Editar" action="#{produtoBean.editar}">
+                  <f:param value="#{p.id}" name="prod"/>                        
+	             </h:commandLink>  
+           </h:form>
+                    
+        </h:column>
+         <h:column>
+   			<h:form>
+	   			<h:commandLink styleClass="btn btn-danger"  value="Excluir" action="#{produtoBean.excluir}">
+	                 <f:param value="#{p.id}" name="prod"/>                        
+	            </h:commandLink>  
+            </h:form>
+       </h:column>
+     </h:dataTable>
+</h:body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Consulta de Estoque</title>
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<link rel="StyleSheet" type="text/css" href="css/style.css" />
+</h:head>
+<h:body>
+
+	
+	<h:form>
+	<div class="btn-group" role="group" aria-label="Basic example">
+		<h:commandLink styleClass="btn btn-secondary"  value="Dashboard" action="#{estoqueBean.redirect}">
+              <f:param value="dashboard.jsf" name="page"/>                        
+          </h:commandLink>  
+			<h:commandLink styleClass="btn btn-secondary"  value="Nova Operação" action="#{estoqueBean.redirect}">
+               <f:param value="form_estoque.jsf" name="page"/>                        
+           </h:commandLink>  
+		</div>
+	</h:form>
+	<hr/>
+
+
+	<br />
+	<br />
+
+	<h:dataTable styleClass="table table-hover" value="#{estoqueBean.lista}" var="f">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+          		#{f.id}
+ 		 </h:column>
+
+		<h:column>
+			<f:facet name="header">Fornecedor</f:facet>
+       			 #{f.fornecedor.razaoSocial}
+	 	</h:column>
+		
+		<h:column>
+			<f:facet name="header">Produto</f:facet>
+       			 #{f.produto.descricao}
+	 	</h:column>
+		
+		<h:column>
+			<f:facet name="header">Quantidade</f:facet>
+       			 #{f.quantidade}  #{f.produto.unidade}
+ 		 	</h:column>
+ 		 	
+ 		 <h:column>
+			<f:facet name="header">Operação</f:facet>
+       			 <span styleClass="text-danger" >#{f.operacao}</span>
+	 	</h:column>
+		
+		<h:column>
+			<h:form>
+				<h:commandLink styleClass="btn btn-warning" value="Editar"
+					action="#{estoqueBean.editar}">
+					<f:param value="#{f.id}" name="id" />
+				</h:commandLink>
+			</h:form>
+		</h:column>
+		
+		<h:column>
+			<h:form>
+				<h:commandLink styleClass="btn btn-danger" value="Excluir"
+					action="#{estoqueBean.excluir}">
+					<f:param value="#{f.id}" name="id" />
+				</h:commandLink>
+			</h:form>
+		</h:column>
+	</h:dataTable>
+</h:body>
+</html>

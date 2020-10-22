@@ -1,0 +1,16 @@
+body{
+	background: #EEE;
+}
+
+.form{
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+label{
+	margin-top: 7px;
+}
+
+.btn-success{
+	margin-top: 7px;
+}

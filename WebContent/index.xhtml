@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+
+<h:head>
+	<title>Login</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <link rel="StyleSheet" type="text/css" href="css/style.css" />
+</h:head>
+	<h:body>
+		
+		<div class="col-md-12 d-flex align-items-center justify-content-center">
+		
+			<div class="col-md-4">
+				<br/>
+				<h4>Login</h4>
+				<hr/>
+				<h:form id="form_01">
+				<div class="form-group">
+					<label>Usuário: </label> 
+					<h:inputText styleClass="form-control" id="input_01" value="#{usuarioBean.usuario}"/>
+				</div>
+				
+				<div class="form-group">
+					Senha: 
+					<h:inputText styleClass="form-control" id="input_02" value="#{usuarioBean.senha}"/>
+					
+				</div>
+					
+					<h:commandButton styleClass="btn btn-success" value="Entrar" action="#{usuarioBean.login}" ></h:commandButton>
+				</h:form>
+			</div>
+		</div>
+		
+</h:body>
+</html>
