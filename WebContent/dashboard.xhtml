@@ -6,25 +6,24 @@
 
 <h:head>
 	<title>Dashboard</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="StyleSheet" type="text/css" href="css/style.css" />
-
-	
 </h:head>
 	<h:body>
+	
 		<h1>Dashboard</h1>
-		
 		<h:form styleClass="flex justify-content-center">
 			<br/>
 			<br/>
-			<h:commandButton styleClass="btn" value="Produtos" action="#{produtoBean.redirect}" >
+			<h:commandButton styleClass="btn btn-primary" value="Produtos" action="#{produtoBean.redirect}" >
 				<f:param value="lista_produto.jsf" name="page"/>                        
 			</h:commandButton>
 			
-			<h:commandButton styleClass="btn" value="Fornecedores" action="#{produtoBean.redirect}" >
+			<h:commandButton styleClass="btn btn-primary" value="Fornecedores" action="#{produtoBean.redirect}" >
 				<f:param value="lista_fornecedor.jsf" name="page"/>                        
 			</h:commandButton>
 			
-			<h:commandButton styleClass="btn" value="Estoque" action="#{produtoBean.redirect}" >
+			<h:commandButton styleClass="btn btn-primary" value="Estoque" action="#{produtoBean.redirect}" >
 				<f:param value="lista_estoque.jsf" name="page"/>                        
 			</h:commandButton>
 		
